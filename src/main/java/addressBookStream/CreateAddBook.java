@@ -2,11 +2,12 @@ package addressBookStream;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 public class CreateAddBook {
 	private String firstName, lastName, address, city, state, email;
 	private int zipCode;
 	private long phoneNumber;
-	ArrayList<AddressBook> contact = new ArrayList<AddressBook>();
+	ArrayList<AddressBook> contact = new ArrayList<>();
 	Scanner sc = new Scanner(System.in);
 	
 	public void readData() {
@@ -26,6 +27,8 @@ public class CreateAddBook {
 		phoneNumber = sc.nextLong();
 		System.out.println("Enter the email: ");
 		email = sc.next();
+		System.out.println("Enter the SearchPerson: ");
+		String SearchPerson = sc.next();
 
 		CreateAddBook method = new CreateAddBook();
 		boolean duplicate = method.checkDuplicateName(firstName, lastName);
@@ -97,6 +100,9 @@ public class CreateAddBook {
 					case 8:
 						System.out.print("Enter new email :- ");
 						contact.get(i).setEmail(sc.next());
+					case 9:
+						System.out.print("Enter new SearchPerson :- ");
+						contact.get(i).setSerachPerson(sc.next());
 						System.out.println("[*]\tEntry Modified");
 						break;
 					}
@@ -123,11 +129,25 @@ public class CreateAddBook {
 				System.out.println("No one with these details found");
 		}
 	}
+	public void searchPersonByState(String state) {
+		ArrayList<AddressBook> list = (ArrayList<AddressBook>) contact.stream().filter(contactName -> contactName.getState().equals(state))
+				.collect(Collectors.toList());
+		for (AddressBook contact : list) {
+			System.out.println("Name: " + contact.getFirstName() +" "+ contact.getLastName());
+		}
+	}
+
+	public void searchPersonByCity(String city2) {
+		ArrayList<AddressBook> list = (ArrayList<AddressBook>) contact.stream().filter(contactName -> contactName.getCity().equals(city))
+				.collect(Collectors.toList());
+		for (AddressBook contact : list) {
+			System.out.println("First Name: " + contact.getFirstName()+ "  " + contact.getLastName());
+		}
+	}
 	public void DisplayContacts() {
 		System.out.println("\nContacts Present in Address Book:");
 		for(int i=0;i<contact.size();i++) {
 			System.out.println(contact.get(i));
 		}
-	}}
-
-	
+	}
+}

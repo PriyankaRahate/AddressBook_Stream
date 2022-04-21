@@ -14,7 +14,10 @@ public class AddBookCollection {
 			System.out.println("2.Display contact");
 			System.out.println("3.Edit contact");
 			System.out.println("4.Delete contact");
+			System.out.println("5.Search Person");
 			ch= sc.nextInt();
+			String state;
+			String city;
 			switch(ch) {
 			case 1: 
 				detail.readData();
@@ -30,10 +33,28 @@ public class AddBookCollection {
 			case 4:
 				detail.deleteData();
 				break;
+			case 5:
+				System.out.println("\nEnter the state name to display details :- ");
+				state = sc.next();
+				detail.searchPersonByState(state);
+				break;
+			case 6:
+				System.out.println("\nEnter the city name to display details :- ");
+				city = sc.next();
+				detail.searchPersonByCity(city);
+				break;
+			case 7:
+				System.out.println("\nEnter the serachPerson State to display details :- ");
+				state = sc.next();
+				detail.searchPersonByState(state);
+			case 8:
+				System.out.println("\nEnter the serachPerson State to display details :- ");
+				state = sc.next();
+				detail.searchPersonByState(state);
+				break;
 			}System.out.println("Do you want to continue? if yes press 1");
 			choice = sc.nextInt();
 		}while(choice == 1);
 		sc.close();
 	}
 }
-

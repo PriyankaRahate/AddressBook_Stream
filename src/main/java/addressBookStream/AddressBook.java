@@ -4,6 +4,7 @@ public class AddressBook {
 	private String firstName, lastName, address, city, state, email;
 	private int zipCode;
 	private long phoneNumber;
+	private Object SearchPerson;
 
 	public AddressBook(String firstName, String lastName, String address, String city, String state,
 			int zipCode, long phoneNumber, String email) {
@@ -15,6 +16,7 @@ public class AddressBook {
 		this.zipCode = zipCode;
 		this.phoneNumber = phoneNumber;
 		this.email = email;
+		this.SearchPerson=SearchPerson;
 	}
 	public String getFirstName() {
 		return firstName;
@@ -79,6 +81,11 @@ public class AddressBook {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	public void setSerachPerson(String SearchPerson) {
+		this.SearchPerson = SearchPerson;
+	}
+
+
 
 
 	@Override
@@ -92,5 +99,5 @@ public class AddressBook {
 				"\n Phone Number : " + phoneNumber +
 				"\n Email : " + email ;
 	}
-
-}
+	}
+	
