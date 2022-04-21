@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class AddBookCollection {
 	public static void main(String[] args) {
+		
 		Scanner sc = new Scanner(System.in);
 		int ch;
 		int choice;
@@ -14,7 +15,10 @@ public class AddBookCollection {
 			System.out.println("2.Display contact");
 			System.out.println("3.Edit contact");
 			System.out.println("4.Delete contact");
-			System.out.println("5.Search Person");
+			System.out.println("5.Search by State");
+			System.out.println("6.Search by City");
+			System.out.println("7.View by State");
+			System.out.println("8.View by City");
 			ch= sc.nextInt();
 			String state;
 			String city;
@@ -44,13 +48,14 @@ public class AddBookCollection {
 				detail.searchPersonByCity(city);
 				break;
 			case 7:
-				System.out.println("\nEnter the serachPerson State to display details :- ");
+				System.out.println("\nEnter the state name :- ");
 				state = sc.next();
-				detail.searchPersonByState(state);
+				detail.viewPersonByState(state);;
+				break;
 			case 8:
-				System.out.println("\nEnter the serachPerson State to display details :- ");
-				state = sc.next();
-				detail.searchPersonByState(state);
+				System.out.println("\nEnter the city name :- ");
+				city = sc.next();
+				detail.viewPersonByCity(city);;
 				break;
 			}System.out.println("Do you want to continue? if yes press 1");
 			choice = sc.nextInt();
