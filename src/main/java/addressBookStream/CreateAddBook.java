@@ -191,4 +191,29 @@ public int countPersonsByState(String state) {
 			System.out.println("Name: " + contact.getFirstName()+ "  " + contact.getLastName());
 		}
 	}
+        public void sortByCity() {
+		List<AddressBook>  sortedList = (ArrayList<AddressBook>) contact.stream().sorted((type1, type2) -> (type1.getCity().compareTo(type2.getCity()))).collect(Collectors.toList());
+		for (AddressBook contact : sortedList) {
+			System.out.println("Name: " + contact.getFirstName()+ "  " + contact.getLastName());
+			System.out.println("City: " + contact.getCity());
+			System.out.println("\n");
+		}
+	}
+	public void sortByState() {
+		List<AddressBook>  sortedList = (ArrayList<AddressBook>) contact.stream().sorted((type1, type2) -> (type1.getState().compareTo(type2.getState()))).collect(Collectors.toList());
+		for (AddressBook contact : sortedList) {
+			System.out.println("Name: " + contact.getFirstName()+ "  " + contact.getLastName());
+			System.out.println("State: " +contact.getState());
+			System.out.println("\n");
+		}
+	}
+	public void sortByZip() {
+		List<AddressBook>  sortedList = (ArrayList<AddressBook>) contact.stream().sorted((type1, type2) -> (int)(type1.getZipCode() - type2.getZipCode())).collect(Collectors.toList());
+		for (AddressBook contact : sortedList) {
+			System.out.println("Name: " + contact.getFirstName()+ "  " + contact.getLastName());
+			System.out.println("Zip: " + contact.getZipCode());
+			System.out.println("\n");
+		}
+	}
+
 }
