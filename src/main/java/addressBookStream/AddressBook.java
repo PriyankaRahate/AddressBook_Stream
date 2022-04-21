@@ -1,5 +1,7 @@
 package addressBookStream;
 
+import java.util.Scanner;
+
 public class AddressBook {
 	private String firstName, lastName, address, city, state, email;
 	private int zipCode;

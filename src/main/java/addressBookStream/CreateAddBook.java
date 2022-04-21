@@ -1,10 +1,9 @@
 package addressBookStream;
 
-import java.util.Scanner;
-import java.util.stream.Collectors;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Scanner;
+import java.util.stream.Collectors;
 public class CreateAddBook {
 	private String firstName, lastName, address, city, state, email;
 	private int zipCode;
@@ -163,5 +162,26 @@ public void viewPersonByState(String state) {
 		for(int i=0;i<contact.size();i++) {
 			System.out.println(contact.get(i));
 		}
+	}
+public int countPersonsByState(String state) {
+		int count= 0;
+		List<AddressBook> list = contact.stream().filter(contactName -> contactName.getState().equals(state))
+				.collect(Collectors.toList());
+		for (AddressBook contact : list) {
+			System.out.println("Name: " + contact.getFirstName()+ "  " + contact.getLastName());
+			count ++;
+		}
+		return count;
+	}
+
+	public int countPersonsByCity(String city) {
+		int count = 0 ;
+		List<AddressBook> list = contact.stream().filter(contactName -> contactName.getCity().equals(city))
+				.collect(Collectors.toList());
+		for (AddressBook contact : list) {
+			System.out.println("Name: " + contact.getFirstName()+ "  " + contact.getLastName());
+			count +=1;
+		}
+		return count;
 	}
 }
